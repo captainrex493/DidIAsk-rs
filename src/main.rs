@@ -1,3 +1,4 @@
+//hi :)
 //! Requires the 'framework' feature flag be enabled in your project's
 //! `Cargo.toml`.
 //!
