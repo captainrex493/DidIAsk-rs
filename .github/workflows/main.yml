@@ -1,5 +1,10 @@
-name: remote ssh command
-on: [push]
+name: run and deploy
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 jobs:
   
   build:
@@ -17,6 +22,7 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
+    needs: [build]
     steps:
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@master
