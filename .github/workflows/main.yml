@@ -34,7 +34,7 @@ jobs:
         script: |
           cd DidIAsk-rs/
           git pull
-          echo $PATH
+          export PATH=$PATH:$HOME/.cargo/bin
           ./build.sh
           killall DidIAsk
           mv target/release/DidIAsk ~/run/DidIAsk
