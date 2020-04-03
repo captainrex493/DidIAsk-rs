@@ -34,7 +34,7 @@ jobs:
         script: |
           cd DidIAsk-rs/
           git pull
-          rustup 
+          echo $PATH
           ./build.sh
           killall DidIAsk
           mv target/release/DidIAsk ~/run/DidIAsk
