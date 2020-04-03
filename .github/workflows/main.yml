@@ -40,4 +40,5 @@ jobs:
           cd ~/run
           git pull
           nohup ./DidIAsk &
+          logout
           
