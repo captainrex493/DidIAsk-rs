@@ -34,7 +34,7 @@ jobs:
         script: |
           cd DidIAsk-rs/
           git pull
-          cargo build --release
+          ./build.sh
           killall DidIAsk
           mv target/release/DidIAsk ~/run/DidIAsk
           cd ~/run
