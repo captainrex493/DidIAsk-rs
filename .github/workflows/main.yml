@@ -35,7 +35,6 @@ jobs:
           cd DidIAsk-rs/
           git pull
           rustup 
-          curl https://sh.rustup.rs -sSf | sh -y
           ./build.sh
           killall DidIAsk
           mv target/release/DidIAsk ~/run/DidIAsk
