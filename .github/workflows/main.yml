@@ -40,5 +40,5 @@ jobs:
           cd ~/run
           git pull
           ./DidIAsk </dev/null &>/dev/null &
-          logout
+          exit
           
