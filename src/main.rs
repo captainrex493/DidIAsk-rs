@@ -14,7 +14,7 @@ use std::{collections::HashSet, env, sync::Arc};
 
 use log::{debug, error, info};
 use rand::Rng;
-use serenity::model::channel::Message;
+use serenity::model::channel::{Message, GuildChannel};
 use serenity::model::gateway::Activity;
 use serenity::{
     client::bridge::gateway::ShardManager,
@@ -24,6 +24,8 @@ use serenity::{
 };
 
 use commands::{dia::*, math::*, meta::*, owner::*};
+use serenity::model::guild::{Guild, Member};
+use serenity::model::user::User;
 
 mod commands;
 
@@ -42,34 +44,57 @@ const CHANNEL_LIST: [&str; 4] = [
     "569586147160883241",
 ];
 
+pub struct MessageInfo {
+    channel: Arc<RwLock<GuildChannel>>,
+    guild: Arc<RwLock<Guild>>,
+    member: Member,
+    user: Arc<RwLock<User>>,
+}
+
+pub fn get_message_info(_ctx: Context,msg: Message) -> Result<MessageInfo, bool> {
+    let _channel = match _ctx.cache.read().guild_channel(msg.channel_id) {
+        Some(channel) => channel,
+        None => return Err(true),
+    };
+    let _guild = match msg.guild(&_ctx.cache) {
+        Some(guild) => guild,
+        None => return Err(true),
+    };
+    let _member = match _ctx.cache.read().member(_guild.read().id, msg.author.id) {
+        None => return Err(true),
+        Some(member) => member,
+    };
+    let _user = match _ctx.cache.read().user(msg.author.id) {
+        Some(user) => user,
+        None => return Err(true),
+    };
+    Ok(MessageInfo {
+        channel: _channel,
+        guild: _guild,
+        member: _member,
+        user: _user
+    })
+}
+
 impl EventHandler for Handler {
     fn message(&self, _ctx: Context, msg: Message) {
         if msg.author.bot {
             return;
         }
 
-        let _channel = match _ctx.cache.read().guild_channel(msg.channel_id) {
-            Some(channel) => channel,
-            None => return,
-        };
-        let _guild = match msg.guild(&_ctx.cache) {
-            Some(guild) => guild,
-            None => return,
-        };
-        let _member = match _ctx.cache.read().member(_guild.read().id, msg.author.id) {
-            None => return,
-            Some(member) => member,
-        };
-        let _user = match _ctx.cache.read().user(msg.author.id) {
-            Some(user) => user,
-            None => return,
+        let _message_info = match get_message_info(_ctx.clone(), msg.clone()) {
+            Ok(message_info) => message_info,
+            Err(_) => {
+                error!("Failed to parse message information");
+                return;
+            },
         };
 
         info!(
             "[{}][{}] {}: {}",
-            _guild.read().name,
-            _channel.read().name,
-            _user.read().name,
+            _message_info.guild.read().name,
+            _message_info.channel.read().name,
+            _message_info.user.read().name,
             msg.content
         );
 
