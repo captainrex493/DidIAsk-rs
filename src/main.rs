@@ -111,12 +111,12 @@ impl EventHandler for Handler {
         if msg.author.to_string() == "<@207686242874294272>" {
             info!("Should I ask is {}", should_ask);
             if should_ask < 10 {
-                let _ = msg.channel_id.say(&_ctx.http, "Did I Ask?");
+                let _ = msg.channel_id.say(&_ctx.http, "D¡d | ∆sk‽");
                 info!("Did I asked {}", msg.author)
             }
         } else {
             if should_ask < 5 {
-                let _ = msg.channel_id.say(&_ctx.http, "Did I Ask?");
+                let _ = msg.channel_id.say(&_ctx.http, "D¡d | ∆sk‽");
                 info!("Did I asked {}", msg.author);
             }
         }

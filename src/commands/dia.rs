@@ -7,7 +7,7 @@ fn dia(ctx: &mut Context, msg: &Message) -> CommandResult {
     if msg.author.to_string() == "<@207686242874294272>" {
         return Ok(());
     };
-    let _ = msg.channel_id.say(&ctx.http, "Did I Ask?");
+    let _ = msg.channel_id.say(&ctx.http, "D¡d | ∆sk‽");
 
     Ok(())
 }
