@@ -44,6 +44,48 @@ const CHANNEL_LIST: [&str; 4] = [
     "569586147160883241",
 ];
 
+const D_LIST: [&str; 4] = [
+    "d",
+    "D",
+    "ɖ",
+    "ɗ",
+];
+
+const I_LIST: [&str; 4] = [
+    "i",
+    "I",
+    "¡",
+    "ϊ",
+];
+
+const A_LIST: [&str; 4] = [
+    "a",
+    "A",
+    "∆",
+    "@",
+];
+
+const S_LIST: [&str; 4] = [
+    "s",
+    "S",
+    "$",
+    "$",
+];
+
+const K_LIST: [&str; 4] = [
+    "k",
+    "K",
+    "ꝅ",
+    "ꝅ",
+];
+
+const QMARK_LIST: [&str; 4] = [
+    "⁉",
+    "⁇",
+    "‽",
+    "‽",
+];
+
 pub struct MessageInfo {
     channel: Arc<RwLock<GuildChannel>>,
     guild: Arc<RwLock<Guild>>,
@@ -112,12 +154,12 @@ impl EventHandler for Handler {
         if msg.author.to_string() == "<@207686242874294272>" {
             info!("Should I ask is {}", should_ask);
             if should_ask < 10 {
-                let _ = msg.channel_id.say(&_ctx.http, "D¡d | ∆sk‽");
+                let _ = msg.channel_id.say(&_ctx.http, get_dia_string());
                 info!("Did I asked {}", msg.author)
             }
         } else {
             if should_ask < 5 {
-                let _ = msg.channel_id.say(&_ctx.http, "D¡d | ∆sk‽");
+                let _ = msg.channel_id.say(&_ctx.http, get_dia_string());
                 info!("Did I asked {}", msg.author);
             }
         }
@@ -179,4 +221,34 @@ fn main() {
     if let Err(why) = client.start() {
         error!("Client error: {:?}", why);
     }
+}
+
+fn get_dia_string() -> String {
+    let mut s = String::from("");
+    let mut i = 0;
+    while i < 10 {
+        if i == 0 || i == 2 {
+            s.push_str(D_LIST[rand::thread_rng().gen_range(0, 4)]);
+        }
+        if i == 1 || i == 4 {
+            s.push_str(I_LIST[rand::thread_rng().gen_range(0, 4)]);
+        }
+        if i == 3 || i == 5 {
+            s.push_str(" ");
+        }
+        if i == 6 {
+            s.push_str(A_LIST[rand::thread_rng().gen_range(0, 4)]);
+        }
+        if i == 7 {
+            s.push_str(S_LIST[rand::thread_rng().gen_range(0, 4)]);
+        }
+        if i == 8 {
+            s.push_str(K_LIST[rand::thread_rng().gen_range(0, 4)]);
+        }
+        if i == 9 {
+            s.push_str(QMARK_LIST[rand::thread_rng().gen_range(0, 4)]);
+        }
+        i+= 1;
+    }
+    return s;
 }
