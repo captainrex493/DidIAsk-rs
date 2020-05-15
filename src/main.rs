@@ -25,6 +25,7 @@ use serenity::{
 use commands::{dia::*, math::*, meta::*, owner::*};
 use serenity::model::guild::{Guild, Member};
 use serenity::model::user::User;
+use chrono::{DateTime, FixedOffset, Utc, TimeZone, NaiveDateTime, NaiveDate};
 
 mod commands;
 
@@ -43,9 +44,11 @@ const CHANNEL_LIST: [&str; 4] = [
     "569586147160883241",
 ];
 
+
 pub struct MessageInfo {
     channel: Arc<RwLock<GuildChannel>>,
     guild: Arc<RwLock<Guild>>,
+    timestamp: DateTime<FixedOffset>,
     member: Member,
     user: Arc<RwLock<User>>,
 }
@@ -59,6 +62,8 @@ pub fn get_message_info(_ctx: Context,msg: Message) -> Result<MessageInfo, bool>
         Some(guild) => guild,
         None => return Err(true),
     };
+    let _timestamp = msg.timestamp;
+
     let _member = match _ctx.cache.read().member(_guild.read().id, msg.author.id) {
         None => return Err(true),
         Some(member) => member,
@@ -70,6 +75,7 @@ pub fn get_message_info(_ctx: Context,msg: Message) -> Result<MessageInfo, bool>
     Ok(MessageInfo {
         channel: _channel,
         guild: _guild,
+        timestamp: _timestamp,
         member: _member,
         user: _user
     })
@@ -108,18 +114,23 @@ impl EventHandler for Handler {
             return;
         }
         let should_ask = rand::thread_rng().gen_range(1, 101);
+        let duration = Utc::now().signed_duration_since(msg.timestamp);
+        // TODO find out if msg timestamp is in utc or local
+        // TODO find how to access and mutate variables in this entire file
+        
         if msg.author.to_string() == "<@207686242874294272>" {
             info!("Should I ask is {}", should_ask);
             if should_ask < 10 {
-                let _ = msg.channel_id.say(&_ctx.http, "Did I Ask?");
+                let sent_message = msg.channel_id.say(&_ctx.http, "Did I Ask?");
                 info!("Did I asked {}", msg.author)
             }
         } else {
             if should_ask < 5 {
-                let _ = msg.channel_id.say(&_ctx.http, "Did I Ask?");
+                let sent_message = msg.channel_id.say(&_ctx.http, "Did I Ask?");
                 info!("Did I asked {}", msg.author);
             }
         }
+
     }
 
     fn ready(&self, ctx: Context, ready: Ready) {
@@ -151,6 +162,11 @@ fn main() {
 
     let mut client = Client::new(&token, Handler).expect("Err creating client");
 
+    let mut timestamp_last_sent = DateTime::<Utc>::from_utc(NaiveDate::from_ymd(2003, 5, 7).and_hms(0, 0, 0), Utc);
+    // TODO again, check for time zone.  AND HOPE DATETIMES ARE PASSED BY REFERENCE
+    let mut frequency_numerator :i64 = 0;
+    let mut frequency_denominator :i64 = 100;
+    
     {
         let mut data = client.data.write();
         data.insert::<ShardManagerContainer>(Arc::clone(&client.shard_manager));

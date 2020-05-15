@@ -4,6 +4,7 @@
 name = "DidIAsk"
 version = "0.1.0"
 dependencies = [
+ "chrono",
  "env_logger",
  "kankyo",
  "log",
