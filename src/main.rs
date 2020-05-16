@@ -167,7 +167,7 @@ impl EventHandler for Handler {
 
     fn ready(&self, ctx: Context, ready: Ready) {
         info!("Connected as {}", ready.user.name);
-        ctx.set_activity(Activity::playing("Rewritten in Rust"))
+        ctx.set_activity(Activity::listening("distressed sobbing noises"))
     }
 
     fn resume(&self, _: Context, _: ResumedEvent) {
