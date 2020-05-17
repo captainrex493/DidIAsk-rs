@@ -23,7 +23,7 @@ use serenity::{
     prelude::*,
 };
 
-use commands::{dia::*, math::*, meta::*, owner::*, message_generation::*};
+use commands::{dia::*, math::*, meta::*, owner::*, message_generation::*, emojis::*};
 use serenity::model::guild::{Guild, Member};
 use serenity::model::user::User;
 
@@ -137,6 +137,10 @@ impl EventHandler for Handler {
 #[commands(multiply, ping, quit, dia)]
 struct General;
 
+#[group]
+#[commands(owo, uwu, smile, hug, flex, animal, surprise, dance, shrug, flip, unflip, sus, cri, yike, bear)]
+struct Emoji;
+
 fn main() {
     // This will load the environment variables located at `./.env`, relative to
     // the CWD. See `./.env.example` for an example on how to structure this.
@@ -173,7 +177,8 @@ fn main() {
                 c.owners(owners)
                     .prefix(env::var("PREFIX").expect("Expected Prefix").borrow())
             })
-            .group(&GENERAL_GROUP),
+            .group(&GENERAL_GROUP)
+            .group(&EMOJI_GROUP),
     );
 
     if let Err(why) = client.start() {
