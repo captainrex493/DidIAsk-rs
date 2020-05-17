@@ -138,7 +138,7 @@ impl EventHandler for Handler {
 struct General;
 
 #[group]
-#[commands(owo, uwu, smile, hug, flex, animal, surprise, dance, shrug, flip, unflip, sus, cri, yike, bear)]
+#[commands(owo, uwu, smile, hug, flex, animal, surprise, dance, shrug, flip, unflip, sus, cri, yike, bear, fight)]
 struct Emoji;
 
 fn main() {
