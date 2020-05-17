@@ -124,7 +124,7 @@ impl EventHandler for Handler {
 
     fn ready(&self, ctx: Context, ready: Ready) {
         info!("Connected as {}", ready.user.name);
-        ctx.set_activity(Activity::playing("Jailor"))
+        ctx.set_activity(Activity::listening("prisoners' cries"))
     }
 
     fn resume(&self, _: Context, _: ResumedEvent) {
