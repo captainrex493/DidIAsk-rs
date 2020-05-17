@@ -22,7 +22,7 @@ use serenity::{
     prelude::*,
 };
 
-use commands::{dia::*, math::*, meta::*, owner::*};
+use commands::{dia::*, math::*, meta::*, owner::*, message_generation::*};
 use serenity::model::guild::{Guild, Member};
 use serenity::model::user::User;
 
@@ -111,12 +111,12 @@ impl EventHandler for Handler {
         if msg.author.to_string() == "<@207686242874294272>" {
             info!("Should I ask is {}", should_ask);
             if should_ask < 10 {
-                let _ = msg.channel_id.say(&_ctx.http, "Did I Ask?");
+                let _ = msg.channel_id.say(&_ctx.http, get_dia_string());
                 info!("Did I asked {}", msg.author)
             }
         } else {
             if should_ask < 5 {
-                let _ = msg.channel_id.say(&_ctx.http, "Did I Ask?");
+                let _ = msg.channel_id.say(&_ctx.http, get_dia_string());
                 info!("Did I asked {}", msg.author);
             }
         }
@@ -124,7 +124,7 @@ impl EventHandler for Handler {
 
     fn ready(&self, ctx: Context, ready: Ready) {
         info!("Connected as {}", ready.user.name);
-        ctx.set_activity(Activity::playing("Rewritten in Rust"))
+        ctx.set_activity(Activity::listening("distressed sobbing noises"))
     }
 
     fn resume(&self, _: Context, _: ResumedEvent) {
