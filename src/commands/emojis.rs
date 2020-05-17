@@ -105,6 +105,13 @@ fn bear(ctx: &mut Context, msg: &Message) -> CommandResult {
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
+
+#[command]
+fn fight(ctx: &mut Context, msg: &Message) -> CommandResult {
+    let s = format!("`{}`", FIGHT[rand::thread_rng().gen_range(0, FIGHT.len())]);
+    let _ = msg.channel_id.say(&ctx.http, s);
+    Ok(())
+}
 const SMILE: [&str; 32] = [
     "(. ❛ ᴗ ❛.)",
     "(・∀・)",
@@ -280,7 +287,8 @@ const SURPRISE: [&str; 32] = [
     "(╬⁽⁽ ⁰ ⁾⁾ Д ⁽⁽ ⁰ ⁾⁾)",
 ];
 
-const DANCE: [&str; 32] = [
+const DANCE: [&str; 33] = [
+    "♪~ ᕕ(ᐛ)ᕗ",
     "♪～(´ε｀ )",
     "(＾3＾♪",
     "┌(・。・)┘♪",
@@ -424,7 +432,8 @@ const SUS: [&str; 33] = [
     "ಠಿヮಠ",
 ];
 
-const CRI: [&str; 32] = [
+const CRI: [&str; 33] = [
+    "(;´༎ຶД༎ຶ`)",
     "•́  ‿ ,•̀ ",
     "ಥ‿ಥ",
     "ʕ´• ᴥ•̥`ʔ",
@@ -505,4 +514,9 @@ const BEAR: [&str; 10] = [
     "ʕಠ_ಠʔ",
     "ʕ´• ᴥ•̥`ʔ",
     "ʕノ•ᴥ•ʔノ ︵ ┻━┻",
+];
+
+const FIGHT: [&str; 2] = [
+    "(ง'̀-'́)ง",
+    "(ง ͠° ͟ل͜ ͡°)ง",
 ];
