@@ -133,8 +133,12 @@ impl EventHandler for Handler {
 }
 
 #[group]
-#[commands(multiply, ping, quit, dia, owo, uwu, smile, hug, flex, animal, surprise, dance, shrug, flip, unflip, sus, cri, yike, bear)]
+#[commands(multiply, ping, quit, dia)]
 struct General;
+
+#[group]
+#[commands(owo, uwu, smile, hug, flex, animal, surprise, dance, shrug, flip, unflip, sus, cri, yike, bear)]
+struct Emoji;
 
 fn main() {
     // This will load the environment variables located at `./.env`, relative to
@@ -172,7 +176,8 @@ fn main() {
                 c.owners(owners)
                     .prefix(env::var("PREFIX").expect("Expected Prefix").borrow())
             })
-            .group(&GENERAL_GROUP),
+            .group(&GENERAL_GROUP)
+            .group(&EMOJI_GROUP),
     );
 
     if let Err(why) = client.start() {
