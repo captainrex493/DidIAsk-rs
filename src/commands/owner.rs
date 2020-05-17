@@ -6,6 +6,9 @@ use std::thread;
 use std::time::Duration;
 use log::error;
 
+const GULAG_ROLE: u64 = 691541303707566100;
+
+
 #[command]
 #[owners_only]
 fn quit(ctx: &mut Context, msg: &Message) -> CommandResult {
@@ -48,7 +51,9 @@ fn gulag(ctx: &mut Context, msg: &Message) -> CommandResult {
             }
         }
     }
-    if let Err(_) = _member.add_role(&ctx.http, 691541303707566100) {
+
+    if let Err(_) = _member.add_role(&ctx.http, GULAG_ROLE) {
+
         error!("Couldn't give gulag role");
         return Err(CommandError(String::from("Couldn't parse stuff")));
     };
@@ -70,7 +75,9 @@ fn gulag(ctx: &mut Context, msg: &Message) -> CommandResult {
             }
         }
     }
-    match _member.remove_role(&ctx.http,705895621961187710) {
+
+    match _member.remove_role(&ctx.http,GULAG_ROLE) {
+
         Ok(()) => (),
         Err(_) => {
             error!("Could not remove gulag role");
