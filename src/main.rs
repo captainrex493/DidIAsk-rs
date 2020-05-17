@@ -22,7 +22,7 @@ use serenity::{
     prelude::*,
 };
 
-use commands::{dia::*, math::*, meta::*, owner::*, message_generation::*};
+use commands::{dia::*, math::*, meta::*, owner::*, message_generation::*, emojis::*};
 use serenity::model::guild::{Guild, Member};
 use serenity::model::user::User;
 
@@ -133,7 +133,7 @@ impl EventHandler for Handler {
 }
 
 #[group]
-#[commands(multiply, ping, quit, dia)]
+#[commands(multiply, ping, quit, dia, owo, uwu, smile, hug, flex, animal, surprise, dance, shrug, flip, unflip, sus, cri, yike, bear)]
 struct General;
 
 fn main() {
