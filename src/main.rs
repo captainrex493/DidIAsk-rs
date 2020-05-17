@@ -124,7 +124,7 @@ impl EventHandler for Handler {
 
     fn ready(&self, ctx: Context, ready: Ready) {
         info!("Connected as {}", ready.user.name);
-        ctx.set_activity(Activity::listening("distressed sobbing noises"))
+        ctx.set_activity(Activity::playing("Jailor"))
     }
 
     fn resume(&self, _: Context, _: ResumedEvent) {
@@ -133,7 +133,7 @@ impl EventHandler for Handler {
 }
 
 #[group]
-#[commands(multiply, ping, quit, dia)]
+#[commands(multiply, ping, quit, dia, gulag)]
 struct General;
 
 fn main() {
