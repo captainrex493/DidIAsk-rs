@@ -17,98 +17,98 @@ fn owo(ctx: &mut Context, msg: &Message) -> CommandResult {
 
 #[command]
 fn smile(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", SMILE[rand::thread_rng().gen_range(0, SMILE.len())]);
+    let s = format!("``{}``", SMILE[rand::thread_rng().gen_range(0, SMILE.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn hug(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", HUG[rand::thread_rng().gen_range(0, HUG.len())]);
+    let s = format!("``{}``", HUG[rand::thread_rng().gen_range(0, HUG.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn flex(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", FLEX[rand::thread_rng().gen_range(0, FLEX.len())]);
+    let s = format!("``{}``", FLEX[rand::thread_rng().gen_range(0, FLEX.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn animal(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", ANIMAL[rand::thread_rng().gen_range(0, ANIMAL.len())]);
+    let s = format!("``{}``", ANIMAL[rand::thread_rng().gen_range(0, ANIMAL.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn surprise(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", SURPRISE[rand::thread_rng().gen_range(0, SURPRISE.len())]);
+    let s = format!("``{}``", SURPRISE[rand::thread_rng().gen_range(0, SURPRISE.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn dance(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", DANCE[rand::thread_rng().gen_range(0, DANCE.len())]);
+    let s = format!("``{}``", DANCE[rand::thread_rng().gen_range(0, DANCE.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn shrug(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", SHRUG[rand::thread_rng().gen_range(0, SHRUG.len())]);
+    let s = format!("``{}``", SHRUG[rand::thread_rng().gen_range(0, SHRUG.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn flip(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", FLIP[rand::thread_rng().gen_range(0, FLIP.len())]);
+    let s = format!("``{}``", FLIP[rand::thread_rng().gen_range(0, FLIP.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn unflip(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", UNFLIP[rand::thread_rng().gen_range(0, UNFLIP.len())]);
+    let s = format!("``{}``", UNFLIP[rand::thread_rng().gen_range(0, UNFLIP.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn sus(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", SUS[rand::thread_rng().gen_range(0, SUS.len())]);
+    let s = format!("``{}``", SUS[rand::thread_rng().gen_range(0, SUS.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn cri(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", CRI[rand::thread_rng().gen_range(0, CRI.len())]);
+    let s = format!("``{}``", CRI[rand::thread_rng().gen_range(0, CRI.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn yike(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", YIKE[rand::thread_rng().gen_range(0, YIKE.len())]);
+    let s = format!("``{}``", YIKE[rand::thread_rng().gen_range(0, YIKE.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn bear(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", BEAR[rand::thread_rng().gen_range(0, BEAR.len())]);
+    let s = format!("``{}``", BEAR[rand::thread_rng().gen_range(0, BEAR.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn fight(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", FIGHT[rand::thread_rng().gen_range(0, FIGHT.len())]);
+    let s = format!("``{}``", FIGHT[rand::thread_rng().gen_range(0, FIGHT.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
@@ -503,7 +503,9 @@ const YIKE: [&str; 32] = [
     "(；^ω^）",
 ];
 
-const BEAR: [&str; 10] = [
+const BEAR: [&str; 12] = [
+    "🧸",
+    "🐻",
     "ʕっ•ᴥ•ʔっ",
     "ᕦʕ •ᴥ•ʔᕤ",
     "ʕ º ᴥ ºʔ",
