@@ -17,98 +17,98 @@ fn owo(ctx: &mut Context, msg: &Message) -> CommandResult {
 
 #[command]
 fn smile(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", SMILE[rand::thread_rng().gen_range(0, SMILE.len())]);
+    let s = format!("``{}``", SMILE[rand::thread_rng().gen_range(0, SMILE.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn hug(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", HUG[rand::thread_rng().gen_range(0, HUG.len())]);
+    let s = format!("``{}``", HUG[rand::thread_rng().gen_range(0, HUG.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn flex(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", FLEX[rand::thread_rng().gen_range(0, FLEX.len())]);
+    let s = format!("``{}``", FLEX[rand::thread_rng().gen_range(0, FLEX.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn animal(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", ANIMAL[rand::thread_rng().gen_range(0, ANIMAL.len())]);
+    let s = format!("``{}``", ANIMAL[rand::thread_rng().gen_range(0, ANIMAL.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn surprise(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", SURPRISE[rand::thread_rng().gen_range(0, SURPRISE.len())]);
+    let s = format!("``{}``", SURPRISE[rand::thread_rng().gen_range(0, SURPRISE.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn dance(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", DANCE[rand::thread_rng().gen_range(0, DANCE.len())]);
+    let s = format!("``{}``", DANCE[rand::thread_rng().gen_range(0, DANCE.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn shrug(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", SHRUG[rand::thread_rng().gen_range(0, SHRUG.len())]);
+    let s = format!("``{}``", SHRUG[rand::thread_rng().gen_range(0, SHRUG.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn flip(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", FLIP[rand::thread_rng().gen_range(0, FLIP.len())]);
+    let s = format!("``{}``", FLIP[rand::thread_rng().gen_range(0, FLIP.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn unflip(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", UNFLIP[rand::thread_rng().gen_range(0, UNFLIP.len())]);
+    let s = format!("``{}``", UNFLIP[rand::thread_rng().gen_range(0, UNFLIP.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn sus(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", SUS[rand::thread_rng().gen_range(0, SUS.len())]);
+    let s = format!("``{}``", SUS[rand::thread_rng().gen_range(0, SUS.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn cri(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", CRI[rand::thread_rng().gen_range(0, CRI.len())]);
+    let s = format!("``{}``", CRI[rand::thread_rng().gen_range(0, CRI.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn yike(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", YIKE[rand::thread_rng().gen_range(0, YIKE.len())]);
+    let s = format!("``{}``", YIKE[rand::thread_rng().gen_range(0, YIKE.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn bear(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", BEAR[rand::thread_rng().gen_range(0, BEAR.len())]);
+    let s = format!("``{}``", BEAR[rand::thread_rng().gen_range(0, BEAR.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
 
 #[command]
 fn fight(ctx: &mut Context, msg: &Message) -> CommandResult {
-    let s = format!("`{}`", FIGHT[rand::thread_rng().gen_range(0, FIGHT.len())]);
+    let s = format!("``{}``", FIGHT[rand::thread_rng().gen_range(0, FIGHT.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
     Ok(())
 }
@@ -138,7 +138,7 @@ const SMILE: [&str; 32] = [
     "(✿^‿^)",
     "^________,_^",
     "(◡ ω ◡)",
-    "( ´◡‿ゝ◡\\`,)",
+    "( ´◡‿ゝ◡`,)",
     "(｡•̀ᴗ-)✧",
     "(◠‿◕)",
     "(◠‿・)—☆,",
@@ -160,7 +160,7 @@ const HUG: [&str; 32] = [
     "(つ✧ω✧)つ",
     "(っ.❛ ᴗ ❛.)っ",
    "～(つˆДˆ)つ｡",
-    "☆ლ(´ ❥ \\`ლ)",
+    "☆ლ(´ ❥ `ლ)",
     "⊂(•‿•⊂ )*.",
     "✧⊂(´･◡･⊂ )",
     "∘˚˳°⊂(･ω･*⊂)",
@@ -168,9 +168,9 @@ const HUG: [&str; 32] = [
     "⊂(・▽・⊂)",
     "⊂(◉‿◉)つ",
     "o((*^▽^*))o",
-    "╰(*´︶\\`*)╯",
+    "╰(*´︶`*)╯",
     "╰(＾3＾)╯",
-    "╰(⸝⸝⸝´꒳\\`⸝⸝⸝)╯",
+    "╰(⸝⸝⸝´꒳`⸝⸝⸝)╯",
     "♡(˃͈ દ ˂͈ ༶ )",
     "ヾ(˙❥˙)ﾉ",
     "＼(^o^)／",
@@ -220,7 +220,7 @@ const FLEX: [&str; 32] = [
 const ANIMAL: [&str; 32] = [
     "V●ᴥ●V",
     "▼・ᴥ・▼",
-    "U ´꓃ \\` U",
+    "U ´꓃ ` U",
     "(◠ᴥ◕ʋ)",
     "U^ｪ^U ",
     "( ͡°ᴥ ͡° ʋ)",
@@ -237,14 +237,14 @@ const ANIMAL: [&str; 32] = [
     "(✪㉨✪)",
     "ʕ·ᴥ·ʔ",
     "ʕ ꈍᴥꈍʔ",
-    "ʕ´•ᴥ•\\`ʔ",
+    "ʕ´•ᴥ•`ʔ",
     "(✪㉨✪)",
     "(◕ᴥ◕)",
     "(ᵔᴥᵔ)",
     "Ꮚ˘ ꈊ ˘ Ꮚ",
     "(´・(oo)・｀)",
     "(^._.^)ﾉ",
-    "～>\\`)～～～",
+    "～>`)～～～",
     "…ᘛ⁐̤ᕐᐷ",
     "くコ:彡",
     "-ᄒᴥᄒ-",
@@ -278,7 +278,7 @@ const SURPRISE: [&str; 32] = [
     "(‘◉⌓◉’)",
     "⁄(⁄ ⁄•⁄-⁄•⁄ ⁄)⁄",
     "(｡☬０☬｡)",
-    "(´⊙ω⊙\\`)！",
+    "(´⊙ω⊙`)！",
     "(((;ꏿ_ꏿ;)))",
     "(●__●)",
     "(✿☉｡☉)",
@@ -310,7 +310,7 @@ const DANCE: [&str; 33] = [
     "┏(＾0＾)┛",
     "┌(★ｏ☆)┘",
     "└( ＾ω＾)」",
-    "(｢\\`･ω･)｢",
+    "(｢`･ω･)｢",
     "♪(┌・。・)┌",
     "ヘ(￣ω￣ヘ)",
     "ƪ(‾.‾“)┐",
@@ -347,9 +347,9 @@ const SHRUG: [&str; 32] = [
     "¯\\_( ͠° ͟ʖ °͠ )_/¯",
     "乁( •_• )ㄏ",
     "乁| ･ 〰 ･ |ㄏ",
-    "┐(‘～\\`;)┌",
+    "┐(‘～`;)┌",
     "┐(￣ヘ￣)┌",
-    "┐(´д\\`)┌",
+    "┐(´д`)┌",
     "乁( . ര ʖ̯ ര . )ㄏ",
     "乁 ˘ o ˘ ㄏ",
     "乁ʕ •̀ ۝ •́ ʔㄏ",
@@ -370,7 +370,7 @@ const FLIP: [&str; 26] = [
     "(ノಥ,_｣ಥ)ノ彡┻━┻",
     "(┛✧Д✧))┛彡┻━┻",
     "┻┻︵¯\\(ツ)/¯︵┻┻",
-    "┻┻︵ヽ(\\`Д´)ﾉ︵┻┻",
+    "┻┻︵ヽ(`Д´)ﾉ︵┻┻",
     "(/¯◡ ‿ ◡)/¯ ~ ┻━┻",
     "(ノ｀⌒´)ノ┫：・┻┻",
     "(ﾉ°_o)ﾉ⌒┫ ┻ ┣ ┳",
@@ -433,10 +433,10 @@ const SUS: [&str; 33] = [
 ];
 
 const CRI: [&str; 33] = [
-    "(;´༎ຶД༎ຶ\\`)",
+    "(;´༎ຶД༎ຶ`)",
     "•́  ‿ ,•̀ ",
     "ಥ‿ಥ",
-    "ʕ´• ᴥ•̥\\`ʔ",
+    "ʕ´• ᴥ•̥`ʔ",
     "༎ຶ‿༎ຶ",
     "( ；∀；)",
     "(´；ω；｀)",
@@ -446,19 +446,19 @@ const CRI: [&str; 33] = [
     "(っ˘̩╭╮˘̩)っ",
     "( ･ั﹏･ั)",
     "(｡ŏ﹏ŏ)",
-    "(๑´•.̫ • \\`๑)",
-    "(´ . .̫ . \\`)",
+    "(๑´•.̫ • `๑)",
+    "(´ . .̫ . `)",
     "(｡•́︿•̀｡)",
     "(｡ﾉω＼｡)",
     "ಥ╭╮ಥ",
     "(ᗒᗩᗕ)",
     "( ≧Д≦)",
-    ".·´¯\\`(>▂<)´¯\\`·.",
+    ".·´¯`(>▂<)´¯`·.",
     "( ⚈̥̥̥̥̥́⌢⚈̥̥̥̥̥̀)",
     "ಥ_ಥ",
-    "(´;︵;\\`)",
+    "(´;︵;`)",
     "༼;´༎ຶ ۝ ༎ຶ༽",
-    "｡:ﾟ(;´∩\\`;)ﾟ:｡",
+    "｡:ﾟ(;´∩`;)ﾟ:｡",
     "(༎ຶ ෴ ༎ຶ)",
     "( ꈨຶ ˙̫̮ ꈨຶ )",
     "(〒﹏〒)",
@@ -476,7 +476,7 @@ const YIKE: [&str; 32] = [
     "ヘ（。□°）ヘ",
     "(⊙_◎)",
     "ミ●﹏☉ミ",
-    "(●´⌓\\`●)",
+    "(●´⌓`●)",
     "(*﹏*;)",
     "(＠_＠;)",
     "(ꏿ﹏ꏿ;)",
@@ -495,7 +495,7 @@ const YIKE: [&str; 32] = [
     "(-_-;)",
     "(-_-メ)",
     "(-_-;)",
-    "・・・(´-﹏-\\`；)",
+    "・・・(´-﹏-`；)",
     "(~_~メ)",
     "(~_~;)",
     "(ʘ言ʘ╬)",
@@ -504,18 +504,18 @@ const YIKE: [&str; 32] = [
 ];
 
 const BEAR: [&str; 12] = [
+    "🧸",
+    "🐻",
     "ʕっ•ᴥ•ʔっ",
     "ᕦʕ •ᴥ•ʔᕤ",
     "ʕ º ᴥ ºʔ",
     "ʕ·ᴥ·ʔ",
     "ʕ ꈍᴥꈍʔ",
-    "ʕ´•ᴥ•\\`ʔ",
+    "ʕ´•ᴥ•`ʔ",
     "乁ʕ •̀ ۝ •́ ʔㄏ",
     "ʕಠ_ಠʔ",
-    "ʕ´• ᴥ•̥\\`ʔ",
+    "ʕ´• ᴥ•̥`ʔ",
     "ʕノ•ᴥ•ʔノ ︵ ┻━┻",
-    "🐻",
-    "🧸",
 ];
 
 const FIGHT: [&str; 2] = [
