@@ -108,8 +108,8 @@ impl EventHandler for Handler {
             return;
         }
         let should_ask = rand::thread_rng().gen_range(1, 101);
+        info!("Should I ask is {}", should_ask);
         if msg.author.to_string() == "<@207686242874294272>" {
-            info!("Should I ask is {}", should_ask);
             if should_ask < 10 {
                 let _ = msg.channel_id.say(&_ctx.http, get_dia_string());
                 info!("Did I asked {}", msg.author)
