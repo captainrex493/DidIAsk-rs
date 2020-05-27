@@ -4,18 +4,21 @@ use serenity::prelude::*;
 use rand::Rng;
 
 #[command]
+#[bucket = "emoji"]
 fn uwu(ctx: &mut Context, msg: &Message) -> CommandResult {
     let _ = msg.channel_id.say(&ctx.http, "`(◡ ω ◡)`");
     Ok(())
 }
 
 #[command]
+#[bucket = "emoji"]
 fn owo(ctx: &mut Context, msg: &Message) -> CommandResult {
     let _ = msg.channel_id.say(&ctx.http, "`(ㆁωㆁ)`");
     Ok(())
 }
 
 #[command]
+#[bucket = "emoji"]
 fn smile(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", SMILE[rand::thread_rng().gen_range(0, SMILE.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
@@ -23,6 +26,7 @@ fn smile(ctx: &mut Context, msg: &Message) -> CommandResult {
 }
 
 #[command]
+#[bucket = "emoji"]
 fn hug(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", HUG[rand::thread_rng().gen_range(0, HUG.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
@@ -30,6 +34,7 @@ fn hug(ctx: &mut Context, msg: &Message) -> CommandResult {
 }
 
 #[command]
+#[bucket = "emoji"]
 fn flex(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", FLEX[rand::thread_rng().gen_range(0, FLEX.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
@@ -37,6 +42,7 @@ fn flex(ctx: &mut Context, msg: &Message) -> CommandResult {
 }
 
 #[command]
+#[bucket = "emoji"]
 fn animal(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", ANIMAL[rand::thread_rng().gen_range(0, ANIMAL.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
@@ -44,6 +50,7 @@ fn animal(ctx: &mut Context, msg: &Message) -> CommandResult {
 }
 
 #[command]
+#[bucket = "emoji"]
 fn surprise(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", SURPRISE[rand::thread_rng().gen_range(0, SURPRISE.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
@@ -51,6 +58,7 @@ fn surprise(ctx: &mut Context, msg: &Message) -> CommandResult {
 }
 
 #[command]
+#[bucket = "emoji"]
 fn dance(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", DANCE[rand::thread_rng().gen_range(0, DANCE.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
@@ -58,6 +66,7 @@ fn dance(ctx: &mut Context, msg: &Message) -> CommandResult {
 }
 
 #[command]
+#[bucket = "emoji"]
 fn shrug(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", SHRUG[rand::thread_rng().gen_range(0, SHRUG.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
@@ -65,6 +74,7 @@ fn shrug(ctx: &mut Context, msg: &Message) -> CommandResult {
 }
 
 #[command]
+#[bucket = "emoji"]
 fn flip(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", FLIP[rand::thread_rng().gen_range(0, FLIP.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
@@ -72,6 +82,7 @@ fn flip(ctx: &mut Context, msg: &Message) -> CommandResult {
 }
 
 #[command]
+#[bucket = "emoji"]
 fn unflip(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", UNFLIP[rand::thread_rng().gen_range(0, UNFLIP.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
@@ -79,6 +90,7 @@ fn unflip(ctx: &mut Context, msg: &Message) -> CommandResult {
 }
 
 #[command]
+#[bucket = "emoji"]
 fn sus(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", SUS[rand::thread_rng().gen_range(0, SUS.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
@@ -86,6 +98,7 @@ fn sus(ctx: &mut Context, msg: &Message) -> CommandResult {
 }
 
 #[command]
+#[bucket = "emoji"]
 fn cri(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", CRI[rand::thread_rng().gen_range(0, CRI.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
@@ -100,6 +113,7 @@ fn yike(ctx: &mut Context, msg: &Message) -> CommandResult {
 }
 
 #[command]
+#[bucket = "emoji"]
 fn bear(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", BEAR[rand::thread_rng().gen_range(0, BEAR.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
@@ -107,6 +121,7 @@ fn bear(ctx: &mut Context, msg: &Message) -> CommandResult {
 }
 
 #[command]
+#[bucket = "emoji"]
 fn fight(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", FIGHT[rand::thread_rng().gen_range(0, FIGHT.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);

@@ -17,7 +17,7 @@ use serenity::model::channel::{Message, GuildChannel};
 use serenity::model::gateway::Activity;
 use serenity::{
     client::bridge::gateway::ShardManager,
-    framework::{standard::macros::group, StandardFramework},
+    framework::{standard::macros::{group,help}, StandardFramework},
     model::{event::ResumedEvent, gateway::Ready},
     prelude::*,
 };
@@ -25,6 +25,8 @@ use serenity::{
 use commands::{dia::*, math::*, meta::*, owner::*, message_generation::*, emojis::*};
 use serenity::model::guild::{Guild, Member};
 use serenity::model::user::User;
+use serenity::framework::standard::{HelpOptions, Args, CommandGroup, CommandResult, help_commands};
+use serenity::model::id::UserId;
 
 mod commands;
 
@@ -124,7 +126,9 @@ impl EventHandler for Handler {
 
     fn ready(&self, ctx: Context, ready: Ready) {
         info!("Connected as {}", ready.user.name);
-        ctx.set_activity(Activity::listening("prisoners' cries"))
+        ctx.set_activity(Activity::listening("prisoners' cries"));
+
+
     }
 
     fn resume(&self, _: Context, _: ResumedEvent) {
@@ -139,6 +143,24 @@ struct General;
 #[group]
 #[commands(owo, uwu, smile, hug, flex, animal, surprise, dance, shrug, flip, unflip, sus, cri, yike, bear, fight)]
 struct Emoji;
+
+#[help]
+#[individual_command_tip =
+"Hello! こんにちは！Hola! Bonjour! 您好!\n\
+If you want more information about a specific command, just pass the command as argument."]
+#[max_levenshtein_distance(3)]
+#[indention_prefix = "+"]
+#[lacking_permissions = "Strike"]
+fn my_help(
+    context: &mut Context,
+    msg: &Message,
+    args: Args,
+    help_options: &'static HelpOptions,
+    groups: &[&'static CommandGroup],
+    owners: HashSet<UserId>
+) -> CommandResult {
+    help_commands::with_embeds(context, msg, args, help_options, groups, owners)
+}
 
 fn main() {
     // This will load the environment variables located at `./.env`, relative to
@@ -177,7 +199,11 @@ fn main() {
                     .prefix(env::var("PREFIX").expect("Expected Prefix").borrow())
             })
             .group(&GENERAL_GROUP)
-            .group(&EMOJI_GROUP),
+            .group(&EMOJI_GROUP)
+            .help(&MY_HELP)
+            .bucket("emoji", |b| b.delay(10).time_span(60).limit(2))
+
+
     );
 
     if let Err(why) = client.start() {
