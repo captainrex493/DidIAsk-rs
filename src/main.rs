@@ -28,6 +28,8 @@ use serenity::model::user::User;
 
 mod commands;
 
+pub mod identifications;
+
 struct ShardManagerContainer;
 
 impl TypeMapKey for ShardManagerContainer {
@@ -35,13 +37,6 @@ impl TypeMapKey for ShardManagerContainer {
 }
 
 struct Handler;
-
-const CHANNEL_LIST: [&str; 4] = [
-    "530491424529973260",
-    "535663746555707394",
-    "675993960178647040",
-    "569586147160883241",
-];
 
 pub struct MessageInfo {
     channel: Arc<RwLock<GuildChannel>>,
@@ -98,7 +93,7 @@ impl EventHandler for Handler {
         );
 
         let mut allowed_channel = false;
-        for str in &CHANNEL_LIST {
+        for str in &identifications::channels::CHANNEL_WHITELIST {
             if msg.channel_id.to_string().as_str() == str.to_string() {
                 allowed_channel = true;
             }
@@ -108,7 +103,7 @@ impl EventHandler for Handler {
             return;
         }
         let should_ask = rand::thread_rng().gen_range(1, 101);
-        if msg.author.to_string() == "<@207686242874294272>" {
+        if msg.author.to_string() == identifications::users::never_asked {
             info!("Should I ask is {}", should_ask);
             if should_ask < 10 {
                 let _ = msg.channel_id.say(&_ctx.http, get_dia_string());
