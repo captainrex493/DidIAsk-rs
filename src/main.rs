@@ -109,18 +109,19 @@ impl EventHandler for Handler {
         if !allowed_channel {
             return;
         }
-        let should_ask = rand::thread_rng().gen_range(1, 101);
+        let mut should_ask = false;
+        let number = rand::thread_rng().gen_range(1, 101);
+        info!("Should I ask number is {}", number);
         if msg.author.to_string() == "<@207686242874294272>" {
-            info!("Should I ask is {}", should_ask);
-            if should_ask < 10 {
-                let _ = msg.channel_id.say(&_ctx.http, get_dia_string());
-                info!("Did I asked {}", msg.author)
+            if number < 10 {
+                should_ask = true;
             }
-        } else {
-            if should_ask < 5 {
+        } else if number < 5 {
+            should_ask = true;
+        }
+        if should_ask {
                 let _ = msg.channel_id.say(&_ctx.http, get_dia_string());
                 info!("Did I asked {}", msg.author);
-            }
         }
     }
 
