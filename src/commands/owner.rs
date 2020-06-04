@@ -60,8 +60,7 @@ fn gulag(ctx: &mut Context, msg: &Message) -> CommandResult {
 
     if let Err(_) = _member.user.read().direct_message(&ctx,|m|
         m.content(format!("You will be released in {} minute(s)",time))) {
-        error!("Couldn't give gulag role");
-        return Err(CommandError(String::from("Couldn't parse stuff")))
+        error!("Couldn't send info dm");
     };
 
     thread::sleep(Duration::from_secs(time*60));
