@@ -8,6 +8,8 @@
 //! git = "https://github.com/serenity-rs/serenity.git"
 //! features = ["framework", "standard_framework"]
 //! ```
+
+//comment :)
 use std::borrow::Borrow;
 use std::{collections::HashSet, env, sync::Arc};
 
