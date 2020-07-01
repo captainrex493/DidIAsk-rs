@@ -10,3 +10,7 @@ pub mod channels {
 pub mod users {
     pub const never_asked: &str = "<@207686242074294272>";
 }
+
+pub mod roles {
+    pub const gulag_role: u64 = 691541303707566100;
+}
