@@ -3,34 +3,6 @@ Did I ask, rewritten in Rust using serenity-rs.
 
 This bot randomly comments "Did I ask?" on specified channels (along with other goodies).
 
-## Commands:
-1. Core:
-    1. `dia`: Bot comments a stylized "Did I ask?"
-1. Emojis / Emoticons:
-    1. `uwu`: Bot comments a random "uwu" kaomoji.
-    1. `owo`: Bot comments a random "owo" kaomoji.
-    1. `smile`: Bot comments a random smiling kaomoji.
-    1. `hug`: Bot comments a random hugging kaomoji.
-    1. `flex`: Bot comments a random flexing kaomoji.
-    1. `animal`: Bot comments a random animal kaomoji.
-    1. `surprise`: Bot comments a random suprised kaomoji.
-    1. `dance`: Bot comments a random dancing kaomoji.
-    1. `shrug`: Bot comments a random shrugging kaomoji. 
-    1. `flip`: Bot comments a random "table flip" kaomoji.
-    1. `unflip`: Bot comments a random "table unflip" kaomoji.
-    1. `sus`: Bot comments a random suspicious kaomoji.
-    1. `cri`: Bot comments a random crying kaomoji.
-    1. `yike`: Bot comments a random "yikes" kaomoji.
-    1. `bear`: Bot comments a random bear kaomoji / emoji.
-    1. `fight`: Bot comments a random fighting kaomoji.
-1. Math:
-    1. `multiply`: Bot multiplies two given numbers.
-1. Administration (only owner is allowed to run):
-    1. `quit`: Bot quits.
-    1. `Gulag`: Bot adds user to Gulag role specified in configuration.
-1. Misc
-    1. `ping`: Pong!
-
 ## Building and Configuring:
 1. Clone this repository
 1. Install Rust and Cargo. [Don't Know How?](https://doc.rust-lang.org/cargo/getting-started/installation.html)
@@ -53,3 +25,31 @@ DISCORD_TOKEN=YOUR_DISCORD_TOKEN # You got this earlier
 PREFIX=! # What all commands start with
 RUST_LOG=error # The options are info, error, or debug
 ```
+
+## Commands:
+1. Core:
+    1. `dia`: Bot comments a stylized "Did I ask?"
+1. Emojis / Emoticons:
+    1. `uwu`: Bot comments a "uwu" kaomoji.
+    1. `owo`: Bot comments a "owo" kaomoji.
+    1. `smile`: Bot comments a random smiling kaomoji.
+    1. `hug`: Bot comments a random hugging kaomoji.
+    1. `flex`: Bot comments a random flexing kaomoji.
+    1. `animal`: Bot comments a random animal kaomoji.
+    1. `surprise`: Bot comments a random suprised kaomoji.
+    1. `dance`: Bot comments a random dancing kaomoji.
+    1. `shrug`: Bot comments a random shrugging kaomoji. 
+    1. `flip`: Bot comments a random "table flip" kaomoji.
+    1. `unflip`: Bot comments a random "table unflip" kaomoji.
+    1. `sus`: Bot comments a random suspicious kaomoji.
+    1. `cri`: Bot comments a random crying kaomoji.
+    1. `yike`: Bot comments a random "yikes" kaomoji.
+    1. `bear`: Bot comments a random bear kaomoji / emoji.
+    1. `fight`: Bot comments a random fighting kaomoji.
+1. Math:
+    1. `multiply`: Bot multiplies two given numbers.
+1. Administration (only owner is allowed to run):
+    1. `quit`: Bot quits.
+    1. `Gulag`: Bot adds user to Gulag role specified in configuration.
+1. Misc
+    1. `ping`: Pong!
