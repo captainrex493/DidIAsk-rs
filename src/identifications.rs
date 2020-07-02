@@ -8,7 +8,9 @@ pub mod channels {
 }
 
 pub mod users {
-    pub const never_asked: &str = "<@207686242074294272>";
+    pub const NEVER_ASKED: [&str; 1] = [
+        "<@207686242074294272>",
+    ];
 }
 
 pub mod roles {

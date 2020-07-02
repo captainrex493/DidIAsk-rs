@@ -106,7 +106,8 @@ impl EventHandler for Handler {
         let mut should_ask = false;
         let number = rand::thread_rng().gen_range(1, 101);
         info!("Should I ask number is {}", number);
-        if msg.author.to_string() == identifications::users::never_asked {
+        let author = msg.author.to_string();
+        if identifications::users::NEVER_ASKED.iter().any(|v| v == &author) {
             if number < 10 {
                 should_ask = true;
             }
