@@ -16,7 +16,7 @@ const CHANNEL_LIST: [&str; 2] = [
 ];
 ```
 1. Edit the file `src/commands/identifications.rs` and replace the `GULAG_ROLE` with the administrator role in Discord. Getting the role ID is very similar to getting the channel ID. Users in this role must be shamed.
-1. (Optional) Replace the ID in the file `src/identifications.rs` with the User ID of who you want to permanently disallow from using the bot command. Replace the string with the proper ID in the format `<@ID_GOES_HERE>`.
+1. (Optional) Replace the ID list in the file `src/identifications.rs` with the User IDs of who you want to permanently disallow from using the bot command. Replace the strings in the list with the proper ID in the format `<@ID_GOES_HERE>`. Similar to the `CHANNEL_LIST` format.
 1. From the source directory, run `cargo build --release` to generate the binary. (If you want debug features, get rid of the `--release` flag)
 1. Copy the generated binary (should be in the directory `target/release/DidIAsk` to a different (preferably empty) directory.
 1. In the new directory, create a file called `.env` and place the following code inside of it, replacing the values needed:
