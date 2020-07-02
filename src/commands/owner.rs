@@ -5,8 +5,9 @@ use serenity::prelude::*;
 use std::thread;
 use std::time::Duration;
 use log::error;
+use crate::identifications::roles;
 
-const GULAG_ROLE: u64 = 691541303707566100;
+const GULAG_ROLE: u64 = roles::gulag_role;
 
 
 #[command]

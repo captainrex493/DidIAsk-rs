@@ -8,6 +8,7 @@
 //! git = "https://github.com/serenity-rs/serenity.git"
 //! features = ["framework", "standard_framework"]
 //! ```
+
 use std::borrow::Borrow;
 use std::{collections::HashSet, env, sync::Arc};
 
@@ -28,6 +29,8 @@ use serenity::model::user::User;
 
 mod commands;
 
+pub mod identifications;
+
 struct ShardManagerContainer;
 
 impl TypeMapKey for ShardManagerContainer {
@@ -35,13 +38,6 @@ impl TypeMapKey for ShardManagerContainer {
 }
 
 struct Handler;
-
-const CHANNEL_LIST: [&str; 4] = [
-    "530491424529973260",
-    "535663746555707394",
-    "675993960178647040",
-    "569586147160883241",
-];
 
 pub struct MessageInfo {
     channel: Arc<RwLock<GuildChannel>>,
@@ -98,7 +94,7 @@ impl EventHandler for Handler {
         );
 
         let mut allowed_channel = false;
-        for str in &CHANNEL_LIST {
+        for str in &identifications::channels::CHANNEL_WHITELIST {
             if msg.channel_id.to_string().as_str() == str.to_string() {
                 allowed_channel = true;
             }
@@ -110,7 +106,7 @@ impl EventHandler for Handler {
         let mut should_ask = false;
         let number = rand::thread_rng().gen_range(1, 101);
         info!("Should I ask number is {}", number);
-        if msg.author.to_string() == "<@207686242874294272>" {
+        if msg.author.to_string() == identifications::users::never_asked {
             if number < 10 {
                 should_ask = true;
             }
