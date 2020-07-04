@@ -5,13 +5,16 @@ use serenity::prelude::*;
 use std::thread;
 use std::time::Duration;
 use log::error;
-use crate::identifications::roles;
+use crate::global::*;
 
-const GULAG_ROLE: u64 = roles::gulag_role;
+
+
+
 
 
 #[command]
 #[owners_only]
+#[aliases("stop")]
 fn quit(ctx: &mut Context, msg: &Message) -> CommandResult {
     let data = ctx.data.read();
 
@@ -31,11 +34,24 @@ fn quit(ctx: &mut Context, msg: &Message) -> CommandResult {
 #[command]
 #[owners_only]
 fn gulag(ctx: &mut Context, msg: &Message) -> CommandResult {
+    let data = ctx.data.read();
     let list = msg.content.split_whitespace();
     let time = list.last().unwrap().parse::<u64>().unwrap();
     let _user = &msg.mentions[0];
 
-    let mut _member =match ctx.http.get_member(msg.guild_id.unwrap().0,_user.id.0){
+    let gulag_role: u64 = {
+        let global = data.get::<GlobalInformation>().expect("Expected GlobalInformation in ShareMap");
+        match global.get(&GlobalKeys::GulagRole) {
+            Some(value) => value.get(0).unwrap().parse::<u64>().unwrap(),
+            None => {
+                error!("No Gulag Role");
+                return Ok(());
+            },
+
+        }
+    };
+    
+    let mut _member = match ctx.http.get_member(msg.guild_id.unwrap().0,_user.id.0){
         Ok(_member) => _member,
         Err(_) => {
             error!("Failed to parse message information");
@@ -52,8 +68,9 @@ fn gulag(ctx: &mut Context, msg: &Message) -> CommandResult {
             }
         }
     }
+    
 
-    if let Err(_) = _member.add_role(&ctx.http, GULAG_ROLE) {
+    if let Err(_) = _member.add_role(&ctx.http, gulag_role) {
 
         error!("Couldn't give gulag role");
         return Err(CommandError(String::from("Couldn't parse stuff")));
@@ -76,7 +93,7 @@ fn gulag(ctx: &mut Context, msg: &Message) -> CommandResult {
         }
     }
 
-    match _member.remove_role(&ctx.http,GULAG_ROLE) {
+    match _member.remove_role(&ctx.http,gulag_role) {
 
         Ok(()) => (),
         Err(_) => {
