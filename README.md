@@ -15,15 +15,19 @@ const CHANNEL_LIST: [&str; 2] = [
     "489023098423098423",
 ];
 ```
-1. Edit the file `src/commands/identifications.rs` and replace the `GULAG_ROLE` with the administrator role in Discord. Getting the role ID is very similar to getting the channel ID. Users in this role must be shamed.
-1. (Optional) Replace the ID in the file `src/identifications.rs` with the User ID of who you want to permanently disallow from using the bot command. Replace the string with the proper ID in the format `<@ID_GOES_HERE>`.
+
 1. From the source directory, run `cargo build --release` to generate the binary. (If you want debug features, get rid of the `--release` flag)
 1. Copy the generated binary (should be in the directory `target/release/DidIAsk` to a different (preferably empty) directory.
-1. In the new directory, create a file called `.env` and place the following code inside of it, replacing the values needed:
+1. In the new directory, create a file called `.env` and place the following code inside of it, replacing the values needed or copy the `.env.example` file and rename it and replace the values needed.
 ```sh
 DISCORD_TOKEN=YOUR_DISCORD_TOKEN # You got this earlier
 PREFIX=! # What all commands start with
 RUST_LOG=error # The options are info, error, or debug
+
+CHANNEL_WHITELIST=519875138979834798,489023098423098423,705895622074433549 # Channel ids that the bot is allowed to randomly did i ask
+GULAG_ROLE=705895621961187710 # Id a disciplinary role
+STATUS_PREFIX=listening # Prefix of the bot status, either playing or listening
+STATUS_PHRASE=-h # Status of the bot
 ```
 
 ## Commands:
