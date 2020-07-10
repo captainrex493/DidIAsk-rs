@@ -8,13 +8,6 @@ This bot randomly comments "Did I ask?" on specified channels (along with other 
 1. Install Rust and Cargo. [Don't Know How?](https://doc.rust-lang.org/cargo/getting-started/installation.html)
 1. Sign into Discord and get the bot registered. Note down the bot token and take care of it. Also set the permissions to send messages and read message history. [Don't Know How?](https://www.writebots.com/discord-bot-token/)
 1. Using Discord, find out the channel ID you want the bot to run on. [Don't know how?](https://www.swipetips.com/how-to-get-channel-id-in-discord/)
-1. Edit the file `src/identifications.rs` and replace the array `CHANNEL_LIST` with the channel IDs you want the bot to randomly comment "Did I ask?" in. Take care to set the size of the array to the correct value as well. Example
-```rust
-const CHANNEL_LIST: [&str; 2] = [
-    "519875138979834798",
-    "489023098423098423",
-];
-```
 
 1. From the source directory, run `cargo build --release` to generate the binary. (If you want debug features, get rid of the `--release` flag)
 1. Copy the generated binary (should be in the directory `target/release/DidIAsk` to a different (preferably empty) directory.
