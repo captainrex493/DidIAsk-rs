@@ -112,10 +112,10 @@ impl EventHandler for Handler {
         if !allowed_channel {
             return;
         }
-        let number = rand::thread_rng().gen_range(1, 101);
+        let number = rand::thread_rng().gen_range(1, 501);
         info!("Should I ask number is {}", number);
 
-        if number < 5 {
+        if number == 1 {
             let _ = msg.channel_id.say(&ctx.http, get_dia_string());
                 info!("Did I asked {}", msg.author);
         }
