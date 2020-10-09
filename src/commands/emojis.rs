@@ -6,14 +6,14 @@ use rand::Rng;
 #[command]
 fn uwu(ctx: &mut Context, msg: &Message) -> CommandResult {
     let _ = msg.channel_id.say(&ctx.http, "`(◡ ω ◡)`");
-    msg.delete();
+    msg.delete(&ctx.http);
     Ok(())
 }
 
 #[command]
 fn owo(ctx: &mut Context, msg: &Message) -> CommandResult {
     let _ = msg.channel_id.say(&ctx.http, "`(ㆁωㆁ)`");
-    msg.delete();
+    msg.delete(&ctx.http);
     Ok(())
 }
 
@@ -21,7 +21,7 @@ fn owo(ctx: &mut Context, msg: &Message) -> CommandResult {
 fn smile(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", SMILE[rand::thread_rng().gen_range(0, SMILE.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
-    msg.delete();
+    msg.delete(&ctx.http);
     Ok(())
 }
 
@@ -29,7 +29,7 @@ fn smile(ctx: &mut Context, msg: &Message) -> CommandResult {
 fn hug(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", HUG[rand::thread_rng().gen_range(0, HUG.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
-    msg.delete();
+    msg.delete(&ctx.http);
     Ok(())
 }
 
@@ -37,7 +37,7 @@ fn hug(ctx: &mut Context, msg: &Message) -> CommandResult {
 fn flex(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", FLEX[rand::thread_rng().gen_range(0, FLEX.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
-    msg.delete();
+    msg.delete(&ctx.http);
     Ok(())
 }
 
@@ -45,7 +45,7 @@ fn flex(ctx: &mut Context, msg: &Message) -> CommandResult {
 fn animal(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", ANIMAL[rand::thread_rng().gen_range(0, ANIMAL.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
-    msg.delete();
+    msg.delete(&ctx.http);
     Ok(())
 }
 
@@ -53,7 +53,7 @@ fn animal(ctx: &mut Context, msg: &Message) -> CommandResult {
 fn surprise(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", SURPRISE[rand::thread_rng().gen_range(0, SURPRISE.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
-    msg.delete();
+    msg.delete(&ctx.http);
     Ok(())
 }
 
@@ -61,7 +61,7 @@ fn surprise(ctx: &mut Context, msg: &Message) -> CommandResult {
 fn dance(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", DANCE[rand::thread_rng().gen_range(0, DANCE.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
-    msg.delete();
+    msg.delete(&ctx.http);
     Ok(())
 }
 
@@ -69,7 +69,7 @@ fn dance(ctx: &mut Context, msg: &Message) -> CommandResult {
 fn shrug(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", SHRUG[rand::thread_rng().gen_range(0, SHRUG.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
-    msg.delete();
+    msg.delete(&ctx.http);
     Ok(())
 }
 
@@ -77,7 +77,7 @@ fn shrug(ctx: &mut Context, msg: &Message) -> CommandResult {
 fn flip(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", FLIP[rand::thread_rng().gen_range(0, FLIP.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
-    msg.delete();
+    msg.delete(&ctx.http);
     Ok(())
 }
 
@@ -85,7 +85,7 @@ fn flip(ctx: &mut Context, msg: &Message) -> CommandResult {
 fn unflip(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", UNFLIP[rand::thread_rng().gen_range(0, UNFLIP.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
-    msg.delete();
+    msg.delete(&ctx.http);
     Ok(())
 }
 
@@ -93,7 +93,7 @@ fn unflip(ctx: &mut Context, msg: &Message) -> CommandResult {
 fn sus(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", SUS[rand::thread_rng().gen_range(0, SUS.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
-    msg.delete();
+    msg.delete(&ctx.http);
     Ok(())
 }
 
@@ -101,7 +101,7 @@ fn sus(ctx: &mut Context, msg: &Message) -> CommandResult {
 fn cri(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", CRI[rand::thread_rng().gen_range(0, CRI.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
-    msg.delete();
+    msg.delete(&ctx.http);
     Ok(())
 }
 
@@ -109,7 +109,7 @@ fn cri(ctx: &mut Context, msg: &Message) -> CommandResult {
 fn yike(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", YIKE[rand::thread_rng().gen_range(0, YIKE.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
-    msg.delete();
+    msg.delete(&ctx.http);
     Ok(())
 }
 
@@ -117,7 +117,7 @@ fn yike(ctx: &mut Context, msg: &Message) -> CommandResult {
 fn bear(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", BEAR[rand::thread_rng().gen_range(0, BEAR.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
-    msg.delete();
+    msg.delete(&ctx.http);
     Ok(())
 }
 
@@ -125,7 +125,7 @@ fn bear(ctx: &mut Context, msg: &Message) -> CommandResult {
 fn fight(ctx: &mut Context, msg: &Message) -> CommandResult {
     let s = format!("``{}``", FIGHT[rand::thread_rng().gen_range(0, FIGHT.len())]);
     let _ = msg.channel_id.say(&ctx.http, s);
-    msg.delete();
+    msg.delete(&ctx.http);
     Ok(())
 }
 const SMILE: [&str; 32] = [

@@ -102,8 +102,6 @@ impl EventHandler for Handler {
             }
         };
 
-        
-
     }
 
     fn ready(&self, ctx: Context, ready: Ready) {
