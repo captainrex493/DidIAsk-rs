@@ -50,3 +50,7 @@ STATUS_PHRASE=-h # Status of the bot
     1. `Gulag`: Bot adds user to Gulag role specified in configuration.
 1. Misc
     1. `ping`: Pong!
+
+## Docker
+
+In order to make this program work from a Docker container, modify the `docker-compose.yml` file to contain the required environment variables and run `docker-compose up -d`. This will compile the code, build the image, and create a small deployment image.
