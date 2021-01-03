@@ -23,6 +23,16 @@ STATUS_PREFIX=listening # Prefix of the bot status, either playing or listening
 STATUS_PHRASE=-h # Status of the bot
 ```
 
+### Docker
+
+Download the provided `docker-compose.yml` file, and open it with your preferred text editor. Set the bot prefix to a character (default is `?`), and set the bot token. [Don't know how to get a token?](https://www.writebots.com/discord-bot-token/) Don't forget to set the rest of the configuration outlined above.
+
+Install Docker Compose by following the instructions [here](https://docs.docker.com/compose/install/).
+
+Start the bot with `docker-compose up -d`, and check to make sure that it's running with `docker ps`. If it isn't running, run `docker-compose up` to see debug output, and ensure that you've set all of the proper information in the `docker-compose.yml` file.
+
+Invite your bot to the server(s) of your choice. [Don't know how?](https://discordjs.guide/preparations/adding-your-bot-to-servers.html).
+
 ## Commands:
 1. Core:
     1. `dia`: Bot comments a stylized "Did I ask?"
@@ -51,6 +61,3 @@ STATUS_PHRASE=-h # Status of the bot
 1. Misc
     1. `ping`: Pong!
 
-## Docker
-
-In order to make this program work from a Docker container, modify the `docker-compose.yml` file to contain the required environment variables and run `docker-compose up -d`. This will compile the code, build the image, and create a small deployment image.
