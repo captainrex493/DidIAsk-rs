@@ -1,5 +1,6 @@
 use std::borrow::Borrow;
 use std::{collections::{HashMap,HashSet}, env, sync::Arc};
+use dotenv::dotenv;
 
 use log::{debug, error, info};
 use rand::Rng;
@@ -186,7 +187,7 @@ struct Emoji;
 fn main() {
     // This will load the environment variables located at `./.env`, relative to
     // the CWD. See `./.env.example` for an example on how to structure this.
-    kankyo::load().expect("Failed to load .env file");
+    dotenv().ok();
 
     // Initialize the logger to use environment variables.
     //

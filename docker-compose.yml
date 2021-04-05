@@ -1,0 +1,12 @@
+version: '3'
+services:
+  bot:
+    image: sambhavsaggi/didiask-rs
+    environment:
+      PREFIX: '!'
+      DISCORD_TOKEN: 'put-your-token-here'
+      RUST_LOG: 'error'
+      CHANNEL_WHITELIST: '' # Whitelisted channels
+      GULAG_ROLE: '' # role ID for gulag
+      STATUS_PREFIX: 'listening' # listening or playing
+      STATUS_PHRASE: 'music' # listening or playing what?

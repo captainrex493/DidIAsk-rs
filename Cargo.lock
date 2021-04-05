@@ -4,8 +4,8 @@
 name = "DidIAsk"
 version = "0.1.0"
 dependencies = [
+ "dotenv",
  "env_logger",
- "kankyo",
  "log",
  "rand",
  "serenity",
@@ -189,6 +189,12 @@ checksum = "f3d0c8c8752312f9713efd397ff63acb9f85585afbf179282e720e7704954dd5"
 dependencies = [
  "generic-array",
 ]
+
+[[package]]
+name = "dotenv"
+version = "0.15.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "77c90badedccf4105eca100756a0b1289e191f6fcbdadd3cee1d2f614f97da8f"
 
 [[package]]
 name = "dtoa"
@@ -524,12 +530,6 @@ checksum = "ce10c23ad2ea25ceca0093bd3192229da4c5b3c0f2de499c1ecac0d98d452177"
 dependencies = [
  "wasm-bindgen",
 ]
-
-[[package]]
-name = "kankyo"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "147dec7a6c66256d1ca8704e3b34365ccb8e050baeca278f16a554cced9681df"
 
 [[package]]
 name = "kernel32-sys"
