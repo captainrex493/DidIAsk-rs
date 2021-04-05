@@ -2,7 +2,7 @@ name: check and deploy
 
 on:
   push:
-    branches: [ master ]
+    # branches: [ master ]
 jobs:
 
   check:
